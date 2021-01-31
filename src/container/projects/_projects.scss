@@ -1,0 +1,106 @@
+.projects{
+    grid-row: 4 / 5;
+    grid-column: full-start / full-end;
+    margin-top: 5rem;
+    background-color: rgb(48, 64, 94);
+    color: #fff;
+
+    position: relative;
+    z-index: 20;
+
+    display: grid;
+    grid-template-columns: 20rem 1fr 20rem;
+    grid-template-rows: 5rem min-content 1fr 5rem;
+    @include respond(tab-port){
+        grid-row: 5 / 6;
+        grid-template-columns: 5rem 1fr 5rem;
+    }
+    &__header{
+        grid-column: 2 / 3;
+        grid-row: 2 / 3;
+        @include subHeader(#fff)
+    }
+    &__images{
+        grid-row: 3 / 4;
+        grid-column: 1 / 4;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+        grid-gap: 5rem;
+        margin: 0 2rem;
+        @include respond(tab-port){
+            grid-column: 2 / 3;
+            grid-template-rows: repeat(6, 45vh);
+            grid-template-columns: 1fr;
+        }
+    }
+    &__link{
+        display: grid;
+        grid-template-rows: repeat(2, min-content);
+        text-decoration: none;
+        &:hover{
+            .projects__view{
+                opacity: 1;
+                visibility: visible;
+            }
+            .projects__view__glass{
+                transform: translateY(0rem);
+            }
+            .projects__view__word{
+                transform: translateY(0rem);
+            }
+        }
+    }
+    &__img{
+        height: 100%;
+        width: 100%;
+        border-radius: 3px;
+        z-index: 30;
+        grid-row: 1 / 3;
+        grid-column: 1 / 3;
+        z-index: 25;
+        
+    }
+    &__view{
+        grid-row: 1 / 3;
+        background-color: rgba(black, .5);
+        grid-column: 1 / 3;
+        display: grid;
+        grid-template-rows: 1fr min-content;
+        align-items: center;
+        justify-items: center;
+        z-index: 30;
+        opacity: 0;
+        visibility: hidden;
+        transition: all .5s;
+        @include respond(tab-port){
+            background-color: rgba(black, .3);
+            opacity: 1;
+            visibility: visible;
+        }
+        &__glass{
+            font-size: 4rem;
+            grid-row: 1 / 2;
+            color: #fff;
+            transform: translateY(-3rem);
+            transition: all .5s;
+            @include respond(tab-port){
+                display: none;
+            }
+        }
+        &__word{
+            grid-row: 2 / 3;
+            font-size: 2rem;
+            background-color: rgba(0, 0, 0, 0.753);
+            color: whitesmoke;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            padding: .5rem;
+            transition: all .5s;
+            @include respond(tab-port){
+                font-size: 5.5rem;
+            }
+        }
+    }
+}

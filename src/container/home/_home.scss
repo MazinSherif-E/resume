@@ -1,0 +1,125 @@
+.home{
+    
+    display: grid;
+    grid-template-rows:120vh 110vh 80vw 130vh min-content 1fr;
+    grid-template-columns: [full-start] 1fr repeat(8, [col-start] minmax(min-content, 1fr) [col-end]) 1fr [full-end];
+    font-family: 'Poppins', sans-serif;
+
+    @include respond(tab-port){
+        grid-template-rows: repeat(6, min-content) 1fr;
+    }
+
+    &__img{
+        grid-row: 1 / -1;
+        grid-column: full-start / full-end;
+        filter: blur(3px) brightness(95%);
+        background-size: cover;
+        height: 300rem;
+        width: 100%;
+        overflow: hidden;
+        z-index: 1;
+
+        @include respond(tab-port){
+            height: 700rem;
+        }
+        @include respond(phone){
+            height: 900rem;
+        }
+    }
+
+    &__nameJop{
+        grid-row: 1 / 2;
+        grid-column: full-start / full-end;
+        font-size: 5rem;
+        font-weight: 700;
+        color: whitesmoke;
+        align-self: center;
+        justify-self: center;
+        z-index: 5;
+        margin-top: 5rem;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        
+        &__jop{
+            font-weight: 500;
+            color: wheat;
+        }
+        @include respond(tab-port){
+            display: none;
+        }
+    }
+    &__mazImg{
+        grid-column: full-start / full-end;
+        grid-row: 1 / 3;
+        align-self: center;
+        justify-self: center;
+        width: 30rem;
+        height: auto;
+        z-index: 5;
+        border-radius: 50%;
+        border: 10px solid whitesmoke;
+        @include respond(tab-port){
+            display: none;
+        }
+    }
+}  
+
+.port{
+    display: none;
+    @include respond(tab-port){
+        grid-column: full-start / full-end;
+        grid-row: 2 / 3;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        z-index: 50;
+    }
+    &__nameJop{
+        @include respond(tab-port){
+            text-align: center;
+            font-size: 6rem;
+            margin: 0rem;
+            font-weight: 700;
+            color: whitesmoke;
+            align-self: center;
+            justify-self: center;
+            z-index: 5;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            @include respond(phone){
+                font-size: 4.5rem;
+            }
+            @media only screen and (max-width: 20em) { font-size: 3.5rem;} 
+        }
+        &__jop{
+            @include respond(tab-port){
+                font-weight: 500;
+                color: wheat;
+            }
+        }
+    }
+    &__mazImg{
+        @include respond(tab-port){
+            width: 50rem;
+            margin: 5rem 0rem;
+            grid-column: full-start / full-end;
+
+            height: auto;
+            z-index: 5;
+            border-radius: 50%;
+            border: 10px solid whitesmoke;
+        }
+        @include respond(phone){
+            width: 45rem;
+        }
+    }
+}
